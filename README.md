@@ -14,4 +14,3 @@
 
 - Netlify forms + automation
 - GSAP animations on load and on hover
-- 
