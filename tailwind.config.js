@@ -13,7 +13,7 @@ const indigo = {
 };
 
 module.exports = {
-  content: ["*.html", "*vue", "js/*.vue"],
+  content: ["*.html", "*vue", "src/js/*.vue"],
   theme: {
     extend: {
       fontFamily: {

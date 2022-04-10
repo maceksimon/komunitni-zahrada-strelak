@@ -22,6 +22,7 @@
 
 <body class="bg-background font-sans">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
     <!-- Heading part -->
     <div class="max-w-5xl mx-auto flex flex-col min-h-screen">
       <div class="relative flex justify-center pt-20 h-96">
@@ -48,43 +49,52 @@
         <span class="block text-green-800 xl:inline">velký zahradnický!</span>
       </p> -->
       <!-- Section with action buttons -->
-      <section class="flex-1 mb-12">
+      <section id="app" class="flex-1 mb-12">
         <div class="flex h-full flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
-          <a href="/volunteer" class="w-full sm:flex-1 block h-full group" @click.prevent="">
-            <div class="relative flex flex-col items-start ">
-              <div
-                class="absolute isolate inset-0 w-full h-full bg-gradient-radial from-white opacity-50 group-hover:opacity-100 via-transparent to-transparent transition-opacity duration-300 ease-in-out">
+          <!-- Wrapper handles the click event from the button -->
+          <Modal>
+            <template v-slot:box1>
+              <div class="relative flex flex-col items-start">
+                <div
+                  class="absolute inset-0 isolate h-full w-full bg-gradient-radial from-white via-transparent to-transparent opacity-50 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                </div>
+                <button
+                  class="z-20 max-w-xl font-barrio text-4xl font-extrabold tracking-tight text-primary-500 transition-colors duration-150 ease-in group-hover:text-primary-400 sm:text-5xl md:text-6xl">
+                  Dobrovolník
+                </button>
+                <p
+                  class="prose prose-xl z-10 mt-4 w-full text-center group-hover:text-primary-600 transition-colors duration-150 ease-in">
+                  Pěstuje komunitní spirit
+                </p>
+                <img class="z-10 mt-12 w-80" src="./images/atomic-helper.png" alt="" />
+                <!-- Absolutely positioned images -->
+                <img src="./images/atomic-flower-3.png" alt="" class="absolute -top-40 -left-4 z-10 w-24" />
+                <img src="./images/atomic-green-grass.png" alt="" class="absolute bottom-0 right-0 z-10 w-44" />
               </div>
-              <button
-                class="z-20 text-4xl tracking-tight font-barrio font-extrabold text-primary-500 group-hover:text-primary-400 transition-colors duration-150 ease-in sm:text-5xl md:text-6xl max-w-xl">
-                Dobrovolník
-              </button>
-              <p class="w-full prose prose-xl z-10 text-center mt-4">Pěstuje komunitní spirit</p>
-              <img class="w-80 mt-12 z-10" src="./images/atomic-helper.png" alt="">
-              <!-- Absolutely positioned images -->
-              <img src="./images/atomic-flower-3.png" alt="" class="absolute w-24 -top-40 -left-4 z-10">
-              <img src="./images/atomic-green-grass.png" alt="" class="absolute w-44 bottom-0 right-0 z-10">
-            </div>
-          </a>
-          <a href="/gardener" class="w-full sm:flex-1 block h-full group" @click.prevent="">
-            <div
-              class="relative flex flex-col items-end  bg-gradient-radial from-white/80 via-transparent to-transparent">
+            </template>
+            <template v-slot:box2>
               <div
-                class="absolute isolate inset-0 w-full h-full bg-gradient-radial from-white opacity-50 group-hover:opacity-100 via-transparent to-transparent transition-opacity duration-300 ease-in-out">
+                class="relative flex flex-col items-end bg-gradient-radial from-white/80 via-transparent to-transparent">
+                <div
+                  class="absolute inset-0 isolate h-full w-full bg-gradient-radial from-white via-transparent to-transparent opacity-50 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                </div>
+                <button
+                  class="z-20 max-w-xl font-barrio text-4xl font-extrabold tracking-tight text-primary-500 transition-colors duration-150 ease-in group-hover:text-primary-400 sm:text-5xl md:text-6xl">
+                  Zahradník
+                </button>
+                <p
+                  class="prose prose-xl z-10 mt-4 w-full text-center group-hover:text-primary-600 transition-colors duration-150 ease-in">
+                  Adoptuje truhlík
+                </p>
+                <img class="z-10 mt-12 w-80" src="./images/atomic-gardener.png" alt="" />
+                <!-- Absolutely positioned images -->
+                <img src="./images/atomic-green-leaves.png" alt="" class="absolute left-0 bottom-12 z-10 w-28" />
+                <img src="./images/atomic-leaves.png" alt=""
+                  class="absolute left-20 bottom-0 z-10 w-20 -scale-x-100 transform" />
+                <img src="./images/atomic-black-leaves.png" alt="" class="absolute right-0 -top-24 z-10 w-28" />
               </div>
-              <button
-                class="z-20 text-4xl tracking-tight font-barrio font-extrabold text-primary-500 group-hover:text-primary-400 transition-colors duration-150 ease-in sm:text-5xl md:text-6xl max-w-xl">
-                Zahradník
-              </button>
-              <p class="w-full prose prose-xl z-10 text-center mt-4">Adoptuje truhlík</p>
-              <img class="w-80 mt-12 z-10" src="./images/atomic-gardener.png" alt="">
-              <!-- Absolutely positioned images -->
-              <img src="./images/atomic-green-leaves.png" alt="" class="absolute w-28 left-0 bottom-12 z-10">
-              <img src="./images/atomic-leaves.png" alt=""
-                class="absolute w-20 left-20 bottom-0 transform -scale-x-100 z-10">
-              <img src="./images/atomic-black-leaves.png" alt="" class="absolute w-28 right-0 -top-24 z-10">
-            </div>
-          </a>
+            </template>
+          </Modal>
         </div>
       </section>
 
@@ -94,12 +104,11 @@
             8</a> from <a class="underline hover:no-underline" href="https://icons8.com/illustrations">Ouch!</a>
         </p>
       </footer>
+
     </div>
   </div>
-
-
   <!-- Import scripts -->
-  <script type="text/javascript" src="./dist/script.js" defer></script>
+  <script type="text/javascript" src="./dist/js/script.js"></script>
 </body>
 
 </html>
