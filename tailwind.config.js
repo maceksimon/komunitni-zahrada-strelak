@@ -1,15 +1,15 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 const indigo = {
-  100: "#e5e6ff",
-  200: "#b3b3ff",
-  300: "#8080ff",
-  400: "#4d4dff",
-  500: "#1a1bff",
-  600: "#0001e6",
-  700: "#0001b3",
-  800: "#000180",
-  900: "#00004d",
+  100: "#fcf5e8",
+  200: "#f7e2bb",
+  300: "#f1cf8d",
+  400: "#ebbc60",
+  500: "#C38918",
+  600: "#9f7014",
+  700: "#72500e",
+  800: "#443008",
+  900: "#171003",
 };
 
 module.exports = {
@@ -17,7 +17,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Sentient", ...defaultTheme.fontFamily.sans],
+        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+        barrio: ["Barrio"],
       },
       colors: {
         background: {
@@ -27,6 +28,13 @@ module.exports = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: indigo[800],
+          },
+        },
       },
     },
   },

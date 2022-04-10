@@ -9,19 +9,24 @@
   <!-- TODO: Fill in description -->
   <meta name="description" content="Home of the Elite Eagle Academy Cardano NFT project." />
   <link href="./dist/css/style.css" rel="stylesheet" />
-  <link href="https://api.fontshare.com/css?f[]=sentient@300,301,400,401,500,501,700,701&display=swap" rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barrio&family=Poppins:ital,wght@0,200;0,400;1,200;1,400&display=swap"
+    rel="stylesheet">
   <!-- TODO: Favicon -->
 
   <!-- TODO: OG -->
 </head>
 
-<body class="bg-background">
+<body class="bg-background font-sans">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Heading part -->
     <div class="max-w-5xl mx-auto flex flex-col min-h-screen">
       <div class="relative flex justify-center pt-20 h-96">
-        <h1 class="text-4xl tracking-tight font-extrabold text-primary-700 sm:text-5xl md:text-6xl max-w-xl">
+        <h1
+          class="text-4xl tracking-tight font-barrio font-extrabold text-primary-500 sm:text-5xl md:text-6xl max-w-xl">
           Komunitní zahrada Střelák
         </h1>
         <img src="./images/atomic-flower-1.png" alt="žlutá květina v květináči" class="absolute w-40 left-0 top-10">
@@ -29,7 +34,7 @@
           class="absolute w-96 right-0 bottom-0">
       </div>
 
-      <div class="flex justify-center mb-12">
+      <div class="flex justify-center mb-16">
         <div class="flex max-w-xl items-center space-x-12">
           <img src="./images/atomic-flower-2.png" alt="čerstvě zasazená květina s růžovými listy" class="w-24">
           <p class="prose prose-xl">
@@ -45,36 +50,48 @@
       <!-- Section with action buttons -->
       <section class="flex-1 mb-12">
         <div class="flex h-full flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
-          <div
-            class="w-full sm:flex-1 relative flex flex-col items-start bg-gradient-radial from-white/80 via-transparent to-transparent">
-            <button
-              class="z-10 text-4xl tracking-tight font-extrabold text-primary-700 sm:text-5xl md:text-6xl max-w-xl">
-              Dobrovolník
-            </button>
-            <img class="w-80 mt-12" src="./images/atomic-helper.png" alt="">
-            <!-- Absolutely positioned images -->
-            <img src="./images/atomic-flower-3.png" alt="" class="absolute w-24 -top-10 -left-4">
-            <img src="./images/atomic-green-grass.png" alt="" class="absolute w-44 bottom-0 right-0">
-          </div>
-          <div
-            class="w-full sm:flex-1 relative flex flex-col items-end  bg-gradient-radial from-white/80 via-transparent to-transparent">
-            <button
-              class="z-10 text-4xl tracking-tight font-extrabold text-primary-700 sm:text-5xl md:text-6xl max-w-xl">
-              Zahradník
-            </button>
-            <img class="w-80 mt-12" src="./images/atomic-gardener.png" alt="">
-            <!-- Absolutely positioned images -->
-            <img src="./images/atomic-green-leaves.png" alt="" class="absolute w-28 left-0 bottom-12">
-            <img src="./images/atomic-leaves.png" alt="" class="absolute w-20 left-20 bottom-0 transform -scale-x-100">
-            <img src="./images/atomic-black-leaves.png" alt="" class="absolute w-28 right-0 -top-24">
-          </div>
+          <a href="/volunteer" class="w-full sm:flex-1 block h-full group" @click.prevent="">
+            <div class="relative flex flex-col items-start ">
+              <div
+                class="absolute isolate inset-0 w-full h-full bg-gradient-radial from-white opacity-50 group-hover:opacity-100 via-transparent to-transparent transition-opacity duration-300 ease-in-out">
+              </div>
+              <button
+                class="z-20 text-4xl tracking-tight font-barrio font-extrabold text-primary-500 group-hover:text-primary-400 transition-colors duration-150 ease-in sm:text-5xl md:text-6xl max-w-xl">
+                Dobrovolník
+              </button>
+              <p class="w-full prose prose-xl z-10 text-center mt-4">Pěstuje komunitní spirit</p>
+              <img class="w-80 mt-12 z-10" src="./images/atomic-helper.png" alt="">
+              <!-- Absolutely positioned images -->
+              <img src="./images/atomic-flower-3.png" alt="" class="absolute w-24 -top-40 -left-4 z-10">
+              <img src="./images/atomic-green-grass.png" alt="" class="absolute w-44 bottom-0 right-0 z-10">
+            </div>
+          </a>
+          <a href="/gardener" class="w-full sm:flex-1 block h-full group" @click.prevent="">
+            <div
+              class="relative flex flex-col items-end  bg-gradient-radial from-white/80 via-transparent to-transparent">
+              <div
+                class="absolute isolate inset-0 w-full h-full bg-gradient-radial from-white opacity-50 group-hover:opacity-100 via-transparent to-transparent transition-opacity duration-300 ease-in-out">
+              </div>
+              <button
+                class="z-20 text-4xl tracking-tight font-barrio font-extrabold text-primary-500 group-hover:text-primary-400 transition-colors duration-150 ease-in sm:text-5xl md:text-6xl max-w-xl">
+                Zahradník
+              </button>
+              <p class="w-full prose prose-xl z-10 text-center mt-4">Adoptuje truhlík</p>
+              <img class="w-80 mt-12 z-10" src="./images/atomic-gardener.png" alt="">
+              <!-- Absolutely positioned images -->
+              <img src="./images/atomic-green-leaves.png" alt="" class="absolute w-28 left-0 bottom-12 z-10">
+              <img src="./images/atomic-leaves.png" alt=""
+                class="absolute w-20 left-20 bottom-0 transform -scale-x-100 z-10">
+              <img src="./images/atomic-black-leaves.png" alt="" class="absolute w-28 right-0 -top-24 z-10">
+            </div>
+          </a>
         </div>
       </section>
 
       <footer>
-        <p class="text-sm text-gray-500 mb-4">Illustrations by <a
+        <p class="text-sm text-gray-500 mb-4">Illustrations by <a class="underline hover:no-underline"
             href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons
-            8</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
+            8</a> from <a class="underline hover:no-underline" href="https://icons8.com/illustrations">Ouch!</a>
         </p>
       </footer>
     </div>
