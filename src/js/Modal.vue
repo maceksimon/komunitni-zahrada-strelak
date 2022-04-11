@@ -66,7 +66,10 @@
                     Přihlaš se jako dobrovolník
                   </DialogTitle>
                   <!-- First form content -->
-                  <VolunteerForm v-model="form"></VolunteerForm>
+                  <VolunteerForm
+                    v-if="formType === 'volunteer'"
+                    v-model="form"
+                  ></VolunteerForm>
                 </div>
               </div>
             </div>
@@ -76,7 +79,7 @@
               <button
                 type="button"
                 class="inline-flex w-full justify-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
-                @click="open = false"
+                @click.prevent="handleSubmit"
               >
                 Odeslat
               </button>
@@ -98,6 +101,7 @@
 
 <script>
 import { ref, reactive } from "vue";
+import axios from "axios";
 import {
   Dialog,
   DialogOverlay,
@@ -118,6 +122,7 @@ export default {
   },
   setup() {
     const open = ref(false);
+    const formType = ref("volunteer");
 
     const form = reactive({
       firstName: "",
@@ -130,11 +135,35 @@ export default {
       postalCode: "",
     });
 
-    const openModal = (role) => {
+    function openModal(role) {
       open.value = true;
-    };
+      formType.value = role;
+    }
 
-    return { open, openModal, form };
+    function encodeData(data) {
+      return Object.keys(data)
+        .map(
+          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
+    }
+
+    async function handleSubmit() {
+      const axiosConfig = {
+        header: { "Content-Type": "application/x-www-form-urlencoded" },
+      };
+      const response = await axios.post(
+        "/",
+        encodeData({
+          "form-name": formType.value,
+          ...this.form,
+        }),
+        axiosConfig
+      );
+      console.log(response);
+    }
+
+    return { open, form, formType, openModal, handleSubmit };
   },
 };
 </script>
