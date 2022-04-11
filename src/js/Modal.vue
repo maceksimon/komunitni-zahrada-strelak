@@ -65,11 +65,8 @@
                   >
                     Přihlaš se jako dobrovolník
                   </DialogTitle>
-                  <div class="mt-2">
-                    <p class="text-sm text-gray-500">
-                      TODO: Add registration form
-                    </p>
-                  </div>
+                  <!-- First form content -->
+                  <VolunteerForm v-model="form"></VolunteerForm>
                 </div>
               </div>
             </div>
@@ -100,7 +97,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import {
   Dialog,
   DialogOverlay,
@@ -108,6 +105,7 @@ import {
   TransitionChild,
   TransitionRoot,
 } from "@headlessui/vue";
+import VolunteerForm from "./VolunteerForm";
 
 export default {
   components: {
@@ -116,15 +114,27 @@ export default {
     DialogTitle,
     TransitionChild,
     TransitionRoot,
+    VolunteerForm,
   },
   setup() {
     const open = ref(false);
+
+    const form = reactive({
+      firstName: "",
+      lastName: "",
+      emailAddress: "",
+      country: "",
+      streetAddress: "",
+      city: "",
+      region: "",
+      postalCode: "",
+    });
 
     const openModal = (role) => {
       open.value = true;
     };
 
-    return { open, openModal };
+    return { open, openModal, form };
   },
 };
 </script>

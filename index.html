@@ -98,6 +98,19 @@
         </div>
       </section>
 
+      <!-- Workaround for Netlify forms -->
+      <form name="volunteer" netlify netlify-honeypot="bot-field-volunteer" hidden>
+        <!-- replace with appropriate fields -->
+        <input type="text" name="first-name" />
+        <input type="text" name="last-name" />
+        <input type="text" name="email-address" />
+        <input type="text" name="country" />
+        <input type="text" name="street-address" />
+        <input type="text" name="city" />
+        <input type="text" name="region" />
+        <input type="text" name="postal-code" />
+      </form>
+
       <footer>
         <p class="text-sm text-gray-500 mb-4">Illustrations by <a class="underline hover:no-underline"
             href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons
