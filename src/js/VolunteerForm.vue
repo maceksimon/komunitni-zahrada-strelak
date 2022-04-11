@@ -14,12 +14,12 @@
             >First name</label
           >
           <input
-            v-model="formData.firstName"
+            v-model="formData['first-name']"
             type="text"
             name="first-name"
             id="first-name"
             autocomplete="given-name"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
           />
         </div>
 
@@ -28,12 +28,12 @@
             >Last name</label
           >
           <input
-            v-model="formData.lastName"
+            v-model="formData['last-name']"
             type="text"
             name="last-name"
             id="last-name"
             autocomplete="family-name"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
           />
         </div>
 
@@ -44,29 +44,13 @@
             >Email address</label
           >
           <input
-            v-model="formData.emailAddress"
+            v-model="formData['email-address']"
             type="text"
             name="email-address"
             id="email-address"
             autocomplete="email"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
           />
-        </div>
-
-        <div class="col-span-6 sm:col-span-3">
-          <label for="country" class="block text-sm font-medium text-gray-700"
-            >Country</label
-          >
-          <select
-            id="country"
-            name="country"
-            autocomplete="country-name"
-            class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-          >
-            <option>United States</option>
-            <option>Canada</option>
-            <option>Mexico</option>
-          </select>
         </div>
 
         <div class="col-span-6">
@@ -76,12 +60,12 @@
             >Street address</label
           >
           <input
-            v-model="formData.streetAddress"
+            v-model="formData['street-address']"
             type="text"
             name="street-address"
             id="street-address"
             autocomplete="street-address"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
           />
         </div>
 
@@ -90,12 +74,12 @@
             >City</label
           >
           <input
-            v-model="formData.city"
+            v-model="formData['city']"
             type="text"
             name="city"
             id="city"
             autocomplete="address-level2"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
           />
         </div>
 
@@ -104,12 +88,12 @@
             >State / Province</label
           >
           <input
-            v-model="formData.region"
+            v-model="formData['region']"
             type="text"
             name="region"
             id="region"
             autocomplete="address-level1"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
           />
         </div>
 
@@ -120,12 +104,12 @@
             >ZIP / Postal code</label
           >
           <input
-            v-model="formData.postalCode"
+            v-model="formData['postal-code']"
             type="text"
             name="postal-code"
             id="postal-code"
             autocomplete="postal-code"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
           />
         </div>
       </div>
