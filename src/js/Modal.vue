@@ -333,6 +333,7 @@ export default {
           .insert([
             { "email-address": newsletterEmail.value, newsletter: true },
           ]);
+        newsletterEmail.value = "";
       } else {
         formType.value = "unsuccessful";
         open.value = true;
