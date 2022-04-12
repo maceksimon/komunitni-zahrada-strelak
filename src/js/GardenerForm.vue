@@ -79,10 +79,10 @@
             name="flower-beds"
             class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
           >
-            <option>Půl</option>
-            <option>Jeden</option>
-            <option>Jeden a půl</option>
-            <option>Dva</option>
+            <option :value="0.5">Půl</option>
+            <option :value="1">Jeden</option>
+            <option :value="1.5">Jeden a půl</option>
+            <option :value="2">Dva</option>
           </select>
         </div>
 
@@ -94,7 +94,7 @@
               id="payment-300"
               name="payment-tarif"
               type="radio"
-              value="Snížená - 300"
+              :value="300"
               class="h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-500"
             />
             <label
@@ -110,7 +110,7 @@
               id="payment-500"
               name="payment-tarif"
               type="radio"
-              value="Akorát - 500"
+              :value="500"
               class="h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-500"
             />
             <label
@@ -126,7 +126,7 @@
               id="payment-700"
               name="payment-tarif"
               type="radio"
-              value="Ideál - 700"
+              :value="700"
               class="h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-500"
             />
             <label
@@ -192,6 +192,7 @@
           </label>
           <div class="mt-1">
             <textarea
+              v-model="formData['notes-and-questions']"
               id="notes-and-questions"
               name="notes-and-questions"
               rows="3"

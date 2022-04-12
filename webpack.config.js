@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const { VueLoaderPlugin } = require("vue-loader");
+const Dotenv = require("dotenv-webpack");
 
 // default config
 const config = {
@@ -34,7 +35,7 @@ const config = {
     filename: "script.js",
     clean: true,
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [new VueLoaderPlugin(), new Dotenv()],
 };
 
 // https://stackoverflow.com/questions/66189561/you-are-running-the-esm-bundler-build-of-vue-it-is-recommended-to-configure-you

@@ -146,6 +146,7 @@
               class="bg-primary-100 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6"
             >
               <button
+                v-if="formType === 'volunteer' || formType === 'gardener'"
                 type="button"
                 class="inline-flex w-full justify-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
                 @click.prevent="handleSubmit"
@@ -153,7 +154,6 @@
                 Odeslat
               </button>
               <button
-                v-if="formType === 'volunteer' || formType === 'gardener'"
                 type="button"
                 class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                 @click="open = false"
@@ -172,6 +172,14 @@
 <script>
 import { ref, reactive } from "vue";
 import axios from "axios";
+import { createClient } from "@supabase/supabase-js";
+
+// initialize supabase
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_PUBLIC_KEY
+);
+
 import {
   Dialog,
   DialogOverlay,
@@ -202,6 +210,7 @@ export default {
       "city-part": "",
       "soul-plant": "",
       newsletter: true,
+      volunteer: true,
       "notes-and-questions": "",
     };
     const formGardenerDefault = {
@@ -249,6 +258,11 @@ export default {
         axiosConfig
       );
       if (response.status === 200) {
+        // Save data to Supabase
+        const { data, error } = await supabase
+          .from("Members")
+          .insert([forms[formType.value]]);
+
         // Display confirmation
         formType.value = "submitted";
         // Reset form by looping over properties
