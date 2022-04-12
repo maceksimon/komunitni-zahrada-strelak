@@ -50,7 +50,7 @@
       </p> -->
       <!-- Section with action buttons -->
       <section id="app" class="flex-1 mb-12">
-        <div class="flex h-full flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 space-y-4 sm:space-y-0 sm:space-x-8">
           <!-- Wrapper handles the click event from the button -->
           <Modal>
             <template v-slot:box1>
@@ -93,6 +93,9 @@
                 <img src="./images/atomic-black-leaves.png" alt="" class="absolute right-0 -top-24 z-10 w-28" />
               </div>
             </template>
+            <template v-slot:newsletter>
+              <img src="./images/atomic-berries.png" alt="" class="absolute w-24 -left-36 top-0">
+            </template>
           </Modal>
         </div>
       </section>
@@ -121,10 +124,16 @@
         <input type="text" name="notes-and-questions" />
       </form>
 
-      <footer>
-        <p class="text-sm text-gray-500 mb-4">Illustrations by <a class="underline hover:no-underline"
-            href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons
-            8</a> from <a class="underline hover:no-underline" href="https://icons8.com/illustrations">Ouch!</a>
+      <form name="newsletter" netlify netlify-honeypot="bot-field-newsletter" hidden>
+        <input type="text" name="email-address" />
+        <input type="text" name="newsletter" />
+      </form>
+
+      <footer class="grid grid-cols-1 sm:grid-cols-2">
+        <p class="text-sm text-gray-500 mb-4 col-span-1">Podpořila Nadace Via</p>
+        <p class="text-sm text-gray-500 mb-4 col-span-1 sm:text-right">Ilustrace: <a
+            class="underline hover:no-underline" href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons
+            8</a> a <a class="underline hover:no-underline" href="https://icons8.com/illustrations">Ouch!</a>
         </p>
       </footer>
 

@@ -2,18 +2,56 @@
   <!-- Provides access to modal controls -->
   <a
     href="/volunteer"
-    class="group block h-full w-full sm:flex-1"
+    class="group col-span-1 block h-full"
     @click.prevent="openModal('volunteer')"
   >
     <slot name="box1"></slot>
   </a>
   <a
     href="/gardener"
-    class="group block h-full w-full sm:flex-1"
+    class="group col-span-1 block h-full"
     @click.prevent="openModal('gardener')"
   >
     <slot name="box2"></slot>
   </a>
+  <!-- Newsletter section -->
+  <div class="col-span-1 pt-12 sm:col-span-2 sm:pt-16 lg:pt-20">
+    <div class="relative mx-auto mb-2 max-w-xl">
+      <slot name="newsletter"></slot>
+      <h3 class="text-xl font-semibold text-primary-900">Odebírat novinky</h3>
+      <p class="prose prose-lg text-primary-900">
+        Zatím vyčkávám ve stínu ale chci mít přehled o tom, co se děje v
+        zahradě.
+      </p>
+      <form
+        class="mt-8 w-full sm:flex"
+        netlify
+        netlify-honeypot="bot-field-newsletter"
+        @submit.prevent="handleNewsletter"
+      >
+        <label for="email-address" class="sr-only">E-mailová adresa</label>
+        <input
+          v-model="newsletterEmail"
+          id="email-address"
+          name="email-address"
+          type="email-address"
+          autocomplete="email-address"
+          required="true"
+          class="w-full rounded-md border-gray-300 px-5 py-3 placeholder-gray-500 focus:border-primary-500 focus:ring-primary-500 sm:max-w-xs"
+          placeholder="Zadejte e-mail"
+        />
+        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+          <button
+            type="submit"
+            class="flex w-full items-center justify-center rounded-md border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+          >
+            Zapsat se
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Modal window -->
   <TransitionRoot as="template" :show="open">
     <Dialog
       as="div"
@@ -155,7 +193,7 @@
               </button>
               <button
                 type="button"
-                class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                 @click="open = false"
                 ref="cancelButtonRef"
               >
@@ -230,6 +268,7 @@ export default {
       volunteer: reactive(formVolunteerDefault),
       gardener: reactive(formGardenerDefault),
     };
+    const newsletterEmail = ref("");
 
     function openModal(role) {
       open.value = true;
@@ -273,7 +312,42 @@ export default {
       }
     }
 
-    return { open, forms, formType, openModal, handleSubmit };
+    async function handleNewsletter() {
+      const axiosConfig = {
+        header: { "Content-Type": "application/x-www-form-urlencoded" },
+      };
+      const response = await axios.post(
+        "/",
+        encodeData({
+          "form-name": "newsletter",
+          "email-address": newsletterEmail.value,
+        }),
+        axiosConfig
+      );
+      if (response.status === 200) {
+        formType.value = "submitted";
+        open.value = true;
+        // Save data to Supabase
+        const { data, error } = await supabase
+          .from("Members")
+          .insert([
+            { "email-address": newsletterEmail.value, newsletter: true },
+          ]);
+      } else {
+        formType.value = "unsuccessful";
+        open.value = true;
+      }
+    }
+
+    return {
+      open,
+      forms,
+      formType,
+      newsletterEmail,
+      openModal,
+      handleSubmit,
+      handleNewsletter,
+    };
   },
 };
 </script>
