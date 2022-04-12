@@ -214,8 +214,7 @@ export default {
       "notes-and-questions": "",
     };
     const formGardenerDefault = {
-      "first-name": "",
-      "last-name": "",
+      "full-name": "",
       "email-address": "",
       "phone-number": "",
       "city-part": "",
@@ -263,12 +262,12 @@ export default {
           .from("Members")
           .insert([forms[formType.value]]);
 
-        // Display confirmation
-        formType.value = "submitted";
         // Reset form by looping over properties
         Object.keys(forms[formType.value]).forEach((key) => {
           forms[formType.value][key] = formVolunteerDefault[key];
         });
+        // Display confirmation
+        formType.value = "submitted";
       } else {
         formType.value = "unsuccessful";
       }
