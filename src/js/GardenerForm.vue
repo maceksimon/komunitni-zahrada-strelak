@@ -1,10 +1,10 @@
 <template>
   <div class="sm:py-4">
     <form
-      name="volunteer"
+      name="gardener"
       method="POST"
       data-netlify="true"
-      data-netlify-honeypot="bot-field-volunteer"
+      data-netlify-honeypot="bot-field-gardener"
     >
       <div class="grid grid-cols-8 gap-6">
         <div class="col-span-8">
@@ -69,32 +69,112 @@
 
         <div class="col-span-8">
           <label
-            for="soul-plant"
+            for="flower-beds"
             class="block text-sm font-medium text-gray-700"
-            >Kdybyste se mohli narodit jako rostlina, jaká by to byla?</label
+            >Kolik záhonů o rozměru 240 x 80 cm využijete?</label
           >
-          <input
-            v-model="formData['soul-plant']"
-            type="text"
-            name="soul-plant"
-            id="soul-plant"
-            autocomplete="soul-plant"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
-          />
+          <select
+            v-model="formData['flower-beds']"
+            id="flower-beds"
+            name="flower-beds"
+            class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
+          >
+            <option>Půl</option>
+            <option>Jeden</option>
+            <option>Jeden a půl</option>
+            <option>Dva</option>
+          </select>
+        </div>
+
+        <div class="col-span-8 space-y-4">
+          <h4 class="mb-2 text-lg">Platba</h4>
+          <div class="flex items-center">
+            <input
+              v-model="formData['payment-tarif']"
+              id="payment-300"
+              name="payment-tarif"
+              type="radio"
+              value="Snížená - 300"
+              class="h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-500"
+            />
+            <label
+              for="payment-300"
+              class="ml-3 block text-sm font-medium text-gray-700"
+            >
+              Snížená - 300 Kč/sezóna
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input
+              v-model="formData['payment-tarif']"
+              id="payment-500"
+              name="payment-tarif"
+              type="radio"
+              value="Akorát - 500"
+              class="h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-500"
+            />
+            <label
+              for="payment-500"
+              class="ml-3 block text-sm font-medium text-gray-700"
+            >
+              Akorát - 500 Kč/sezóna
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input
+              v-model="formData['payment-tarif']"
+              id="payment-700"
+              name="payment-tarif"
+              type="radio"
+              value="Ideál - 700"
+              class="h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-500"
+            />
+            <label
+              for="payment-700"
+              class="ml-3 block text-sm font-medium text-gray-700"
+            >
+              Ideál - 700 Kč/sezóna
+            </label>
+          </div>
+          <p class="mt-2 text-xs text-gray-500">
+            Výše platby je na vás (neprokazujete se jako student/senior atp.),
+            zvolte možnost podle vaší finanční situace. Údaje pro platbu pošleme
+            po odeslání formuláře na váš e-mail.
+          </p>
+        </div>
+
+        <div class="col-span-8 flex items-start">
+          <div class="flex h-5 items-center">
+            <input
+              v-model="formData['volunteer']"
+              id="volunteer"
+              name="volunteer"
+              type="checkbox"
+              class="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+            />
+          </div>
+          <div class="ml-3 text-sm">
+            <label for="volunteer" class="font-medium text-gray-700"
+              >Dobrovolník</label
+            >
+            <p class="text-gray-500">
+              Chci se do života zahrady zapojit také jako dobrovolník.
+            </p>
+          </div>
         </div>
 
         <div class="col-span-8 flex items-start">
           <div class="flex h-5 items-center">
             <input
               v-model="formData['newsletter']"
-              id="comments"
-              name="comments"
+              id="newsletter"
+              name="newsletter"
               type="checkbox"
               class="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
             />
           </div>
           <div class="ml-3 text-sm">
-            <label for="comments" class="font-medium text-gray-700"
+            <label for="newsletter" class="font-medium text-gray-700"
               >Novinky</label
             >
             <p class="text-gray-500">
@@ -112,7 +192,6 @@
           </label>
           <div class="mt-1">
             <textarea
-              v-model="formData['notes-and-questions']"
               id="notes-and-questions"
               name="notes-and-questions"
               rows="3"

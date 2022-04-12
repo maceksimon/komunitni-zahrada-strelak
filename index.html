@@ -73,8 +73,7 @@
               </div>
             </template>
             <template v-slot:box2>
-              <div
-                class="relative flex flex-col items-end bg-gradient-radial from-white/80 via-transparent to-transparent">
+              <div class="relative flex flex-col items-end ">
                 <div
                   class="absolute inset-0 isolate h-full w-full bg-gradient-radial from-white via-transparent to-transparent opacity-50 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
                 </div>
@@ -100,14 +99,26 @@
 
       <!-- Workaround for Netlify forms -->
       <form name="volunteer" netlify netlify-honeypot="bot-field-volunteer" hidden>
-        <!-- replace with appropriate fields -->
-        <input type="text" name="first-name" />
-        <input type="text" name="last-name" />
+        <input type="text" name="full-name" />
         <input type="text" name="email-address" />
-        <input type="text" name="street-address" />
-        <input type="text" name="city" />
-        <input type="text" name="region" />
-        <input type="text" name="postal-code" />
+        <input type="text" name="phone-number" />
+        <input type="text" name="city-part" />
+        <input type="text" name="soul-plant" />
+        <input type="text" name="newsletter" />
+        <input type="text" name="notes-and-questions" />
+      </form>
+
+      <form name="gardener" netlify netlify-honeypot="bot-field-gardener" hidden>
+        <input type="text" name="full-name" />
+        <input type="text" name="email-address" />
+        <input type="text" name="phone-number" />
+        <input type="text" name="city-part" />
+        <input type="text" name="soul-plant" />
+        <input type="text" name="flower-beds" />
+        <input type="text" name="payment-tarif" />
+        <input type="text" name="newsletter" />
+        <input type="text" name="volunteer" />
+        <input type="text" name="notes-and-questions" />
       </form>
 
       <footer>

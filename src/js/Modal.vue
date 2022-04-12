@@ -100,10 +100,13 @@
                   </div>
                   <DialogTitle
                     as="h3"
-                    class="mb-4 text-center text-xl font-semibold leading-6 text-primary-900"
+                    class="text-center text-xl font-semibold leading-6 text-primary-900 sm:my-4"
                   >
                     <span v-if="formType === 'volunteer'"
                       >Přihlaš se jako dobrovolník</span
+                    >
+                    <span v-if="formType === 'gardener'"
+                      >Přihlaš se jako zahradník</span
                     >
                     <!-- <span v-if="formType === 'gardener'">Přihlaš se jako dobrovolník</span> -->
                     <span v-if="formType === 'submitted'">Děkujeme!</span>
@@ -112,9 +115,13 @@
                   <!-- First form content -->
                   <VolunteerForm
                     v-if="formType === 'volunteer'"
-                    v-model="form"
+                    v-model="forms.volunteer"
                   ></VolunteerForm>
                   <!-- GardenerForm -->
+                  <GardenerForm
+                    v-if="formType === 'gardener'"
+                    v-model="forms.gardener"
+                  ></GardenerForm>
                   <!-- Thank you -->
                   <div v-if="formType === 'submitted'" class="prose prose-lg">
                     <p>
@@ -173,6 +180,7 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 import VolunteerForm from "./VolunteerForm";
+import GardenerForm from "./GardenerForm";
 
 export default {
   components: {
@@ -182,21 +190,38 @@ export default {
     TransitionChild,
     TransitionRoot,
     VolunteerForm,
+    GardenerForm,
   },
   setup() {
     const open = ref(false);
     const formType = ref("volunteer");
-    const formDefault = {
+    const formVolunteerDefault = {
+      "full-name": "",
+      "email-address": "",
+      "phone-number": "",
+      "city-part": "",
+      "soul-plant": "",
+      newsletter: true,
+      "notes-and-questions": "",
+    };
+    const formGardenerDefault = {
       "first-name": "",
       "last-name": "",
       "email-address": "",
-      "street-address": "",
-      city: "",
-      region: "",
-      "postal-code": "",
+      "phone-number": "",
+      "city-part": "",
+      "flower-beds": "",
+      "payment-tarif": "",
+      "soul-plant": "",
+      newsletter: true,
+      volunteer: false,
+      "notes-and-questions": "",
     };
 
-    const form = reactive(formDefault);
+    const forms = {
+      volunteer: reactive(formVolunteerDefault),
+      gardener: reactive(formGardenerDefault),
+    };
 
     function openModal(role) {
       open.value = true;
@@ -219,7 +244,7 @@ export default {
         "/",
         encodeData({
           "form-name": formType.value,
-          ...this.form,
+          ...forms[formType.value],
         }),
         axiosConfig
       );
@@ -227,15 +252,15 @@ export default {
         // Display confirmation
         formType.value = "submitted";
         // Reset form by looping over properties
-        Object.keys(form).forEach((key) => {
-          form[key] = formDefault[key];
+        Object.keys(forms[formType.value]).forEach((key) => {
+          forms[formType.value][key] = formVolunteerDefault[key];
         });
       } else {
         formType.value = "unsuccessful";
       }
     }
 
-    return { open, form, formType, openModal, handleSubmit };
+    return { open, forms, formType, openModal, handleSubmit };
   },
 };
 </script>
