@@ -98,10 +98,23 @@
             <!-- Render the modal content -->
             <div class="relative bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <button
-                class="absolute right-4 top-5 h-4 w-4"
+                class="absolute right-4 top-5 h-4 w-4 sm:hidden"
                 @click="open = false"
               >
-                x
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
               </button>
               <div class="sm:flex sm:items-start">
                 <div class="sm:mt-0 sm:ml-4">
