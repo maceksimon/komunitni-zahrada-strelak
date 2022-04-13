@@ -16,7 +16,9 @@
   </a>
   <!-- Newsletter section -->
   <div class="col-span-1 pt-12 sm:col-span-2 sm:pt-16 lg:pt-20">
-    <div class="relative mx-auto mb-2 max-w-xl">
+    <div
+      class="relative mx-auto mb-2 sm:mr-10 sm:max-w-lg lg:mr-auto lg:max-w-xl"
+    >
       <slot name="newsletter"></slot>
       <h3 class="text-xl font-semibold text-primary-900">Odebírat novinky</h3>
       <p class="prose prose-lg text-primary-900">
@@ -94,9 +96,15 @@
             class="relative inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
           >
             <!-- Render the modal content -->
-            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="relative bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <button
+                class="absolute right-4 top-5 h-4 w-4"
+                @click="open = false"
+              >
+                x
+              </button>
               <div class="sm:flex sm:items-start">
-                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <div class="sm:mt-0 sm:ml-4">
                   <!-- Checkmark icon displayed on successful submit -->
                   <div
                     v-if="formType === 'submitted'"
@@ -138,7 +146,7 @@
                   </div>
                   <DialogTitle
                     as="h3"
-                    class="text-center text-xl font-semibold leading-6 text-primary-900 sm:my-4"
+                    class="pr-4 text-left text-xl font-semibold leading-6 text-primary-900 sm:my-4 sm:pr-0 sm:text-center"
                   >
                     <span v-if="formType === 'volunteer'"
                       >Přihlaš se jako dobrovolník</span

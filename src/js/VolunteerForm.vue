@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:py-4">
+  <div class="pt-4 pb-0 sm:pb-4">
     <form
       name="volunteer"
       method="POST"
