@@ -11,7 +11,7 @@
 - [x] Connect the form submission to the NGO email 📫
 - [x] Store collected data in Supabase ⚡
 - [x] Clean up the responsive version 📱
-- [ ] Add form validations ✅
+- [x] Add form validations ✅
 - [ ] Add cute animations 🌳
 
 ### Sources
