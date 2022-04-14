@@ -21,6 +21,7 @@
 - [Supabase](https://supabase.com/) for data storage
 - [Figma](https://www.figma.com/) for the design
 - [Color Shades Generator](https://mdigi.tools/color-shades/) for creating 10 shades of yellow
+- [Vuelidate](https://vuelidate-next.netlify.app/) for form validation
 
 > Disclaimer: These are only few of a whole bunch of amazing technologies that helped me build this website. Refer to the package.json for the full list ;)
 
