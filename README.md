@@ -10,7 +10,7 @@
 - [x] Link registration forms to Netlify forms 📋
 - [x] Connect the form submission to the NGO email 📫
 - [x] Store collected data in Supabase ⚡
-- [ ] Clean up the responsive version 📱
+- [x] Clean up the responsive version 📱
 - [ ] Add form validations ✅
 - [ ] Add cute animations 🌳
 
