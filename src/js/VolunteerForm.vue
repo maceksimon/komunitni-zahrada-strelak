@@ -6,10 +6,10 @@
       data-netlify="true"
       data-netlify-honeypot="bot-field-volunteer"
     >
-      <div class="grid grid-cols-8 gap-6">
-        <div class="col-span-8">
+      <div class="grid grid-cols-8 gap-x-6 gap-y-8">
+        <div class="relative col-span-8">
           <label for="full-name" class="block text-sm font-medium text-gray-700"
-            >Jméno a příjmení</label
+            >Jméno a příjmení <span class="text-red-700">*</span></label
           >
           <input
             v-model="formData['full-name']"
@@ -18,14 +18,24 @@
             id="full-name"
             autocomplete="full-name"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+            @blur="validations['full-name'].$touch"
           />
+          <template v-if="validations['full-name'].$errors.length">
+            <p
+              v-for="error in validations['full-name'].$errors"
+              :key="error.$validator"
+              class="absolute -bottom-6 text-sm text-red-700"
+            >
+              {{ error.$message }}
+            </p>
+          </template>
         </div>
 
-        <div class="col-span-8 lg:col-span-5">
+        <div class="relative col-span-8 lg:col-span-5">
           <label
             for="email-address"
             class="block text-sm font-medium text-gray-700"
-            >E-mail</label
+            >E-mail <span class="text-red-700">*</span></label
           >
           <input
             v-model="formData['email-address']"
@@ -34,10 +44,20 @@
             id="email-address"
             autocomplete="email"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+            @blur="validations['email-address'].$touch"
           />
+          <template v-if="validations['email-address'].$errors.length">
+            <p
+              v-for="error in validations['email-address'].$errors"
+              :key="error.$validator"
+              class="absolute -bottom-6 text-sm text-red-700"
+            >
+              {{ error.$message }}
+            </p>
+          </template>
         </div>
 
-        <div class="col-span-8 lg:col-span-3">
+        <div class="relative col-span-8 lg:col-span-3">
           <label
             for="phone-number"
             class="block text-sm font-medium text-gray-700"
@@ -50,7 +70,17 @@
             id="phone-number"
             autocomplete="phone-number"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+            @blur="validations['phone-number'].$touch"
           />
+          <template v-if="validations['phone-number'].$errors.length">
+            <p
+              v-for="error in validations['phone-number'].$errors"
+              :key="error.$validator"
+              class="absolute -bottom-6 text-sm text-red-700"
+            >
+              {{ error.$message }}
+            </p>
+          </template>
         </div>
 
         <div class="col-span-8">
@@ -131,6 +161,10 @@ import { computed } from "vue";
 export default {
   props: {
     modelValue: {
+      type: Object,
+      default: {},
+    },
+    validations: {
       type: Object,
       default: {},
     },

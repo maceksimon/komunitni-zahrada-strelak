@@ -7,9 +7,9 @@
       data-netlify-honeypot="bot-field-gardener"
     >
       <div class="grid grid-cols-8 gap-6">
-        <div class="col-span-8">
+        <div class="relative col-span-8">
           <label for="full-name" class="block text-sm font-medium text-gray-700"
-            >Jméno a příjmení</label
+            >Jméno a příjmení <span class="text-red-700">*</span></label
           >
           <input
             v-model="formData['full-name']"
@@ -18,14 +18,24 @@
             id="full-name"
             autocomplete="full-name"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+            @blur="validations['full-name'].$touch"
           />
+          <template v-if="validations['full-name'].$errors.length">
+            <p
+              v-for="error in validations['full-name'].$errors"
+              :key="error.$validator"
+              class="absolute -bottom-6 text-sm text-red-700"
+            >
+              {{ error.$message }}
+            </p>
+          </template>
         </div>
 
-        <div class="col-span-8 lg:col-span-5">
+        <div class="relative col-span-8 lg:col-span-5">
           <label
             for="email-address"
             class="block text-sm font-medium text-gray-700"
-            >E-mail</label
+            >E-mail <span class="text-red-700">*</span></label
           >
           <input
             v-model="formData['email-address']"
@@ -34,10 +44,19 @@
             id="email-address"
             autocomplete="email"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
-          />
+            @blur="validations['email-address'].$touch"
+          /><template v-if="validations['email-address'].$errors.length">
+            <p
+              v-for="error in validations['email-address'].$errors"
+              :key="error.$validator"
+              class="absolute -bottom-6 text-sm text-red-700"
+            >
+              {{ error.$message }}
+            </p>
+          </template>
         </div>
 
-        <div class="col-span-8 lg:col-span-3">
+        <div class="relative col-span-8 lg:col-span-3">
           <label
             for="phone-number"
             class="block text-sm font-medium text-gray-700"
@@ -50,7 +69,17 @@
             id="phone-number"
             autocomplete="phone-number"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+            @blur="validations['phone-number'].$touch"
           />
+          <template v-if="validations['phone-number'].$errors.length">
+            <p
+              v-for="error in validations['phone-number'].$errors"
+              :key="error.$validator"
+              class="absolute -bottom-6 text-sm text-red-700"
+            >
+              {{ error.$message }}
+            </p>
+          </template>
         </div>
 
         <div class="col-span-8">
@@ -67,27 +96,40 @@
           />
         </div>
 
-        <div class="col-span-8">
+        <div class="relative col-span-8">
           <label
             for="flower-beds"
             class="block text-sm font-medium text-gray-700"
-            >Kolik záhonů o rozměru 240 x 80 cm využijete?</label
+            >Kolik záhonů o rozměru 240 x 80 cm využijete?
+            <span class="text-red-700">*</span></label
           >
           <select
             v-model="formData['flower-beds']"
             id="flower-beds"
             name="flower-beds"
             class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
+            @blur="validations['flower-beds'].$touch"
           >
             <option :value="0.5">Půl</option>
             <option :value="1">Jeden</option>
             <option :value="1.5">Jeden a půl</option>
             <option :value="2">Dva</option>
           </select>
+          <template v-if="validations['flower-beds'].$errors.length">
+            <p
+              v-for="error in validations['flower-beds'].$errors"
+              :key="error.$validator"
+              class="absolute -bottom-6 text-sm text-red-700"
+            >
+              {{ error.$message }}
+            </p>
+          </template>
         </div>
 
-        <div class="col-span-8 space-y-4">
-          <h4 class="mb-2 text-lg">Platba</h4>
+        <div class="relative col-span-8 mb-4 space-y-4">
+          <h4 class="mb-2 text-lg">
+            Platba <span class="text-red-700">*</span>
+          </h4>
           <div class="flex items-center">
             <input
               v-model="formData['payment-tarif']"
@@ -96,6 +138,7 @@
               type="radio"
               :value="300"
               class="h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-500"
+              @blur="validations['payment-tarif'].$touch"
             />
             <label
               for="payment-300"
@@ -112,6 +155,7 @@
               type="radio"
               :value="500"
               class="h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-500"
+              @blur="validations['payment-tarif'].$touch"
             />
             <label
               for="payment-500"
@@ -128,6 +172,7 @@
               type="radio"
               :value="700"
               class="h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-500"
+              @blur="validations['payment-tarif'].$touch"
             />
             <label
               for="payment-700"
@@ -141,6 +186,15 @@
             zvolte možnost podle vaší finanční situace. Údaje pro platbu pošleme
             po odeslání formuláře na váš e-mail.
           </p>
+          <template v-if="validations['payment-tarif'].$errors.length">
+            <p
+              v-for="error in validations['payment-tarif'].$errors"
+              :key="error.$validator"
+              class="absolute -bottom-6 text-sm text-red-700"
+            >
+              {{ error.$message }}
+            </p>
+          </template>
         </div>
 
         <div class="col-span-8 flex items-start">
@@ -211,6 +265,10 @@ import { computed } from "vue";
 export default {
   props: {
     modelValue: {
+      type: Object,
+      default: {},
+    },
+    validations: {
       type: Object,
       default: {},
     },

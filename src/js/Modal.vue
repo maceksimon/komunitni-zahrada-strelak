@@ -26,14 +26,14 @@
         zahradě.
       </p>
       <form
-        class="mt-8 w-full sm:flex"
+        class="relative mt-8 w-full sm:flex"
         netlify
         netlify-honeypot="bot-field-newsletter"
         @submit.prevent="handleNewsletter"
       >
         <label for="email-address" class="sr-only">E-mailová adresa</label>
         <input
-          v-model="newsletterEmail"
+          v-model="forms.newsletter"
           id="email-address"
           name="email-address"
           type="email-address"
@@ -50,6 +50,15 @@
             Zapsat se
           </button>
         </div>
+        <template v-if="v.newsletter.$errors.length">
+          <p
+            v-for="error in v.newsletter.$errors"
+            :key="error.$validator"
+            class="absolute -bottom-6 text-sm text-red-700"
+          >
+            {{ error.$message }}
+          </p>
+        </template>
       </form>
     </div>
   </div>
@@ -175,11 +184,13 @@
                   <VolunteerForm
                     v-if="formType === 'volunteer'"
                     v-model="forms.volunteer"
+                    :validations="v.volunteer"
                   ></VolunteerForm>
                   <!-- GardenerForm -->
                   <GardenerForm
                     v-if="formType === 'gardener'"
                     v-model="forms.gardener"
+                    :validations="v.gardener"
                   ></GardenerForm>
                   <!-- Thank you -->
                   <div v-if="formType === 'submitted'" class="prose prose-lg">
@@ -248,6 +259,8 @@ import {
 } from "@headlessui/vue";
 import VolunteerForm from "./VolunteerForm";
 import GardenerForm from "./GardenerForm";
+import useVuelidate from "@vuelidate/core";
+import { rules } from "./validationRules";
 
 export default {
   components: {
@@ -285,11 +298,13 @@ export default {
       "notes-and-questions": "",
     };
 
-    const forms = {
-      volunteer: reactive(formVolunteerDefault),
-      gardener: reactive(formGardenerDefault),
-    };
-    const newsletterEmail = ref("");
+    const forms = reactive({
+      volunteer: formVolunteerDefault,
+      gardener: formGardenerDefault,
+      newsletter: "",
+    });
+
+    const v = useVuelidate(rules, forms);
 
     function openModal(role) {
       open.value = true;
@@ -305,6 +320,10 @@ export default {
     }
 
     async function handleSubmit() {
+      v.value[formType.value].$touch();
+      if (v.value[formType.value].$error) {
+        return;
+      }
       const axiosConfig = {
         header: { "Content-Type": "application/x-www-form-urlencoded" },
       };
@@ -334,6 +353,10 @@ export default {
     }
 
     async function handleNewsletter() {
+      v.value.newsletter.$touch();
+      if (v.value.newsletter.$error) {
+        return;
+      }
       const axiosConfig = {
         header: { "Content-Type": "application/x-www-form-urlencoded" },
       };
@@ -341,7 +364,7 @@ export default {
         "/",
         encodeData({
           "form-name": "newsletter",
-          "email-address": newsletterEmail.value,
+          "email-address": forms.newsletter,
         }),
         axiosConfig
       );
@@ -351,10 +374,8 @@ export default {
         // Save data to Supabase
         const { data, error } = await supabase
           .from("Members")
-          .insert([
-            { "email-address": newsletterEmail.value, newsletter: true },
-          ]);
-        newsletterEmail.value = "";
+          .insert([{ "email-address": forms.newsletter, newsletter: true }]);
+        forms.newsletter = "";
       } else {
         formType.value = "unsuccessful";
         open.value = true;
@@ -365,7 +386,7 @@ export default {
       open,
       forms,
       formType,
-      newsletterEmail,
+      v,
       openModal,
       handleSubmit,
       handleNewsletter,
