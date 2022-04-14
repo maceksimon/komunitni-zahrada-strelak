@@ -30,3 +30,4 @@
 - GSAP animations on load and on hover
 - Vue 3 slots
 - Implementing form validation in nested components
+- Vuelidate for Vue 3 (nested components)
