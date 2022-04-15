@@ -32,3 +32,7 @@
 - Vue 3 slots
 - Implementing form validation in nested components
 - Vuelidate for Vue 3 (nested components)
+
+### Notes
+
+On a slightly more complex project, you might want to implement a **store** [Pinia](https://pinia.vuejs.org/) currently seems to be the go to tech for this.
