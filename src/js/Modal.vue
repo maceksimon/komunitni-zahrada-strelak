@@ -102,6 +102,7 @@
           leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           <div
+            :class="{ 'animate-shake': v[formType].$error }"
             class="relative inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
           >
             <!-- Render the modal content -->
@@ -262,8 +263,6 @@ import GardenerForm from "./GardenerForm";
 import useVuelidate from "@vuelidate/core";
 import { rules } from "./validationRules";
 import { formGardenerDefault, formVolunteerDefault } from "./defaultFormData";
-// TODO: add animations
-// import gsap from "gsap";
 
 export default {
   components: {
@@ -284,7 +283,6 @@ export default {
       gardener: formGardenerDefault,
       newsletter: "",
     });
-
     const v = useVuelidate(rules, forms);
 
     function openModal(role) {
