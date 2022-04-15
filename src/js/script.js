@@ -1,6 +1,4 @@
 import { createApp, defineAsyncComponent } from "vue";
-// TODO: add animations
-// import gsap from "gsap";
 
 const Modal = defineAsyncComponent(() => import("./Modal.vue"));
 

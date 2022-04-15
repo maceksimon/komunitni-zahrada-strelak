@@ -261,6 +261,9 @@ import VolunteerForm from "./VolunteerForm";
 import GardenerForm from "./GardenerForm";
 import useVuelidate from "@vuelidate/core";
 import { rules } from "./validationRules";
+import { formGardenerDefault, formVolunteerDefault } from "./defaultFormData";
+// TODO: add animations
+// import gsap from "gsap";
 
 export default {
   components: {
@@ -275,28 +278,6 @@ export default {
   setup() {
     const open = ref(false);
     const formType = ref("volunteer");
-    const formVolunteerDefault = {
-      "full-name": "",
-      "email-address": "",
-      "phone-number": "",
-      "city-part": "",
-      "soul-plant": "",
-      newsletter: true,
-      volunteer: true,
-      "notes-and-questions": "",
-    };
-    const formGardenerDefault = {
-      "full-name": "",
-      "email-address": "",
-      "phone-number": "",
-      "city-part": "",
-      "flower-beds": "",
-      "payment-tarif": "",
-      "soul-plant": "",
-      newsletter: true,
-      volunteer: false,
-      "notes-and-questions": "",
-    };
 
     const forms = reactive({
       volunteer: formVolunteerDefault,
