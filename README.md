@@ -12,7 +12,7 @@
 - [x] Store collected data in Supabase ⚡
 - [x] Clean up the responsive version 📱
 - [x] Add form validations ✅
-- [ ] Add cute animations 🌳
+- [x] Add cute animations 🌳
 
 ### Sources
 
@@ -22,6 +22,7 @@
 - [Figma](https://www.figma.com/) for the design
 - [Color Shades Generator](https://mdigi.tools/color-shades/) for creating 10 shades of yellow
 - [Vuelidate](https://vuelidate-next.netlify.app/) for form validation
+- [GSAP](https://greensock.com/) for animations
 
 > Disclaimer: These are only few of a whole bunch of amazing technologies that helped me build this website. Refer to the package.json for the full list ;)
 
@@ -32,7 +33,8 @@
 - Vue 3 slots
 - Implementing form validation in nested components
 - Vuelidate for Vue 3 (nested components)
+- Running GSAP animations in Vue (composition API)
 
 ### Notes
 
-On a slightly more complex project, you might want to implement a **store** [Pinia](https://pinia.vuejs.org/) currently seems to be the go to tech for this.
+On a slightly more complex project, you might want to implement a **store**. For Vue 3, this is done with [Pinia](https://pinia.vuejs.org/).
