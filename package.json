@@ -4,7 +4,7 @@
   "description": "website of a community garden",
   "main": "index.js",
   "scripts": {
-    "build:style": "npx tailwindcss -i src/css/tailwind.css -o dist/css/style.css --watch",
+    "watch:style": "npx tailwindcss -i src/css/tailwind.css -o dist/css/style.css --watch",
     "watch:js": "webpack --mode=development -w",
     "build:js:prod": "webpack --mode=production"
   },
