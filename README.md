@@ -13,7 +13,7 @@
 - [x] Clean up the responsive version 📱
 - [x] Add form validations ✅
 - [x] Add cute animations 🌳
-- [ ] Cleanup and refactor 🧹
+- [x] Cleanup and refactor 🧹
 
 ### Sources
 
