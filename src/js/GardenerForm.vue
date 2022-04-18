@@ -20,15 +20,7 @@
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
             @blur="validations['full-name'].$touch"
           />
-          <template v-if="validations['full-name'].$errors.length">
-            <p
-              v-for="error in validations['full-name'].$errors"
-              :key="error.$validator"
-              class="absolute -bottom-6 text-sm text-red-700"
-            >
-              {{ error.$message }}
-            </p>
-          </template>
+          <ErrorDisplay :validator="validations['full-name']" />
         </div>
 
         <div class="relative col-span-8 lg:col-span-5">
@@ -45,15 +37,8 @@
             autocomplete="email"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
             @blur="validations['email-address'].$touch"
-          /><template v-if="validations['email-address'].$errors.length">
-            <p
-              v-for="error in validations['email-address'].$errors"
-              :key="error.$validator"
-              class="absolute -bottom-6 text-sm text-red-700"
-            >
-              {{ error.$message }}
-            </p>
-          </template>
+          />
+          <ErrorDisplay :validator="validations['email-address']" />
         </div>
 
         <div class="relative col-span-8 lg:col-span-3">
@@ -71,15 +56,7 @@
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
             @blur="validations['phone-number'].$touch"
           />
-          <template v-if="validations['phone-number'].$errors.length">
-            <p
-              v-for="error in validations['phone-number'].$errors"
-              :key="error.$validator"
-              class="absolute -bottom-6 text-sm text-red-700"
-            >
-              {{ error.$message }}
-            </p>
-          </template>
+          <ErrorDisplay :validator="validations['phone-number']" />
         </div>
 
         <div class="col-span-8">
@@ -115,15 +92,7 @@
             <option :value="1.5">Jeden a půl</option>
             <option :value="2">Dva</option>
           </select>
-          <template v-if="validations['flower-beds'].$errors.length">
-            <p
-              v-for="error in validations['flower-beds'].$errors"
-              :key="error.$validator"
-              class="absolute -bottom-6 text-sm text-red-700"
-            >
-              {{ error.$message }}
-            </p>
-          </template>
+          <ErrorDisplay :validator="validations['flower-beds']" />
         </div>
 
         <div class="relative col-span-8 mb-4 space-y-4">
@@ -186,15 +155,7 @@
             zvolte možnost podle vaší finanční situace. Údaje pro platbu pošleme
             po odeslání formuláře na váš e-mail.
           </p>
-          <template v-if="validations['payment-tarif'].$errors.length">
-            <p
-              v-for="error in validations['payment-tarif'].$errors"
-              :key="error.$validator"
-              class="absolute -bottom-6 text-sm text-red-700"
-            >
-              {{ error.$message }}
-            </p>
-          </template>
+          <ErrorDisplay :validator="validations['payment-tarif']" />
         </div>
 
         <div class="col-span-8 flex items-start">
@@ -261,8 +222,12 @@
 
 <script>
 import { computed } from "vue";
+import ErrorDisplay from "./ErrorDisplay";
 
 export default {
+  components: {
+    ErrorDisplay,
+  },
   props: {
     modelValue: {
       type: Object,
