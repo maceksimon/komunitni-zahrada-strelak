@@ -43,6 +43,7 @@
           required="true"
           class="w-full rounded-md border-gray-300 px-5 py-3 placeholder-gray-500 focus:border-primary-500 focus:ring-primary-500 sm:max-w-xs"
           placeholder="Zadejte e-mail"
+          @blur="v.newsletter.$touch"
         />
         <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
           <button
@@ -52,15 +53,7 @@
             Zapsat se
           </button>
         </div>
-        <template v-if="v.newsletter.$errors.length">
-          <p
-            v-for="error in v.newsletter.$errors"
-            :key="error.$validator"
-            class="absolute -bottom-6 text-sm text-red-700"
-          >
-            {{ error.$message }}
-          </p>
-        </template>
+        <ErrorDisplay :validator="v.newsletter" />
       </form>
     </div>
   </div>
@@ -262,6 +255,7 @@ import {
 } from "@headlessui/vue";
 import VolunteerForm from "./VolunteerForm";
 import GardenerForm from "./GardenerForm";
+import ErrorDisplay from "./ErrorDisplay";
 import useVuelidate from "@vuelidate/core";
 import { rules } from "./validationRules";
 import { formGardenerDefault, formVolunteerDefault } from "./defaultFormData";
@@ -276,6 +270,7 @@ export default {
     TransitionRoot,
     VolunteerForm,
     GardenerForm,
+    ErrorDisplay,
   },
   setup() {
     const open = ref(false);
