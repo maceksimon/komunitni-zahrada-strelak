@@ -355,6 +355,7 @@ export default {
           .from("Members")
           .insert([{ "email-address": forms.newsletter, newsletter: true }]);
         forms.newsletter = "";
+        v.value.newsletter.$reset();
       } else {
         formType.value = "unsuccessful";
         open.value = true;

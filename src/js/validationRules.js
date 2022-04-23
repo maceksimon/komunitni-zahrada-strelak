@@ -40,4 +40,6 @@ export const rules = {
     required: helpers.withMessage("Povinné pole", required),
     email: helpers.withMessage("Neplatný e-mail", email),
   },
+  submitted: {},
+  unsuccessful: {},
 };
