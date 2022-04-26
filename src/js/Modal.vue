@@ -58,7 +58,7 @@
     </div>
   </div>
   <!-- Modal window -->
-  <TransitionRoot as="template" :show="open">
+  <TransitionRoot as="template" :show="open" @after-leave="resetCurrentForm">
     <Dialog
       as="div"
       class="fixed inset-0 z-30 overflow-y-auto"
@@ -290,6 +290,10 @@ export default {
       formType.value = role;
     }
 
+    function resetCurrentForm() {
+      v.value[formType.value].$reset();
+    }
+
     function encodeData(data) {
       return Object.keys(data)
         .map(
@@ -372,6 +376,7 @@ export default {
       handleNewsletter,
       animateGardener,
       animateVolunteer,
+      resetCurrentForm,
     };
   },
 };
