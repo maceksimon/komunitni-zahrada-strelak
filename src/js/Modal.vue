@@ -43,7 +43,6 @@
           required="true"
           class="w-full rounded-md border-gray-300 px-5 py-3 placeholder-gray-500 focus:border-primary-500 focus:ring-primary-500 sm:max-w-xs"
           placeholder="Zadejte e-mail"
-          @blur="v.newsletter.$touch"
         />
         <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
           <button
