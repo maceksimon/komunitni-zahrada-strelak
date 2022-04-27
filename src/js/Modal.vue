@@ -1,20 +1,37 @@
 <template>
   <!-- Provides access to modal controls -->
   <a
-    href="/volunteer"
-    class="group col-span-1 block h-full"
+    class="group col-span-1 block h-full cursor-pointer"
     @click.prevent="openModal('volunteer')"
     @mouseenter="animateVolunteer"
   >
     <slot name="box1"></slot>
   </a>
   <a
-    href="/gardener"
-    class="group col-span-1 block h-full"
+    :class="[
+      freeBeds !== null && freeBeds > 0 ? 'group cursor-pointer' : 'opacity-70',
+    ]"
+    class="relative col-span-1 block h-full"
     @click.prevent="openModal('gardener')"
     @mouseenter="animateGardener"
   >
     <slot name="box2"></slot>
+    <div
+      v-if="freeBeds != null"
+      class="absolute top-20 right-2 isolate z-30 -rotate-6 transform sm:top-24 xl:top-12 xl:-right-24"
+    >
+      <span
+        v-if="freeBeds > 0"
+        class="inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-medium text-green-800 lg:text-base"
+      >
+        Zbývá {{ freeBeds.toString().replace(".", ",") }} truhlíků!
+      </span>
+      <span
+        v-if="freeBeds <= 0"
+        class="inline-flex items-center rounded-full bg-red-100 px-3 py-0.5 text-sm font-medium text-red-800 lg:text-base"
+        >Máme plno!</span
+      >
+    </div>
   </a>
   <!-- Newsletter section -->
   <div class="col-span-1 pt-12 sm:col-span-2 sm:pt-16 lg:pt-20">
@@ -274,6 +291,31 @@ export default {
   setup() {
     const open = ref(false);
     const formType = ref("volunteer");
+    const freeBeds = ref(null);
+
+    onMounted(async () => {
+      // get data about flower beds
+      let { data: members, error } = await supabase
+        .from("Members")
+        .select("flower-beds");
+      if (members && members.length) {
+        const takenBeds = members.reduce((acc, member) => {
+          if (member["flower-beds"]) {
+            let bedNumber = 0;
+            try {
+              bedNumber = parseFloat(member["flower-beds"]);
+            } catch {
+              bedNumber = 0;
+            }
+            return acc + bedNumber;
+          } else {
+            return acc;
+          }
+        }, 0);
+
+        freeBeds.value = 20 - takenBeds;
+      }
+    });
 
     const forms = reactive({
       volunteer: formVolunteerDefault,
@@ -285,8 +327,11 @@ export default {
     const { animateGardener, animateVolunteer } = initAnimations();
 
     function openModal(role) {
-      open.value = true;
+      if (role === "gardener" && freeBeds.value <= 0) {
+        return;
+      }
       formType.value = role;
+      open.value = true;
     }
 
     function resetCurrentForm() {
@@ -370,6 +415,7 @@ export default {
       forms,
       formType,
       v,
+      freeBeds,
       openModal,
       handleSubmit,
       handleNewsletter,
