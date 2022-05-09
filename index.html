@@ -57,7 +57,7 @@
         <span class="block text-green-800 xl:inline">velký zahradnický!</span>
       </p> -->
       <!-- Section with action buttons -->
-      <section id="app" class="flex-1 mb-12">
+      <section id="app" class="flex-1 mb-4 sm:mb-12">
         <div class="grid grid-cols-1 sm:grid-cols-2 space-y-8 sm:space-y-0 sm:space-x-8">
           <!-- Wrapper handles the click event from the button -->
           <Modal>
@@ -141,10 +141,15 @@
         <input type="text" name="newsletter" />
       </form>
 
-      <footer class="grid grid-cols-1 sm:grid-cols-2 mb-4 space-y-2 sm:space-y-0">
-        <p class="text-sm text-gray-500 col-span-1">Podpořila Nadace Via</p>
-        <p class="text-sm text-gray-500 col-span-1 sm:text-right">Ilustrace: <a class="underline hover:no-underline"
-            href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons
+      <footer class="grid grid-cols-1 sm:grid-cols-4 mb-4 space-y-6 sm:space-y-0 sm:py-8 items-end">
+        <p class="hidden sm:block text-sm text-gray-500 col-span-1">Podpořila Nadace Via</p>
+        <div
+          class="sm:col-span-2 flex items-center justify-center space-x-8 opacity-70 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+          <img src="./images/logo_kaufland.png" alt="logo Kaufland aktivismus" class="h-16">
+          <img src="./images/via_logo.png" alt="logo Nadace Via" class="h-16">
+        </div>
+        <p class="text-sm text-gray-500 text-center col-span-1 sm:text-right">Ilustrace: <a
+            class="underline hover:no-underline" href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons
             8</a> a <a class="underline hover:no-underline" href="https://icons8.com/illustrations">Ouch!</a>
         </p>
       </footer>
