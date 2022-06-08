@@ -15,6 +15,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barrio&family=Poppins:ital,wght@0,200;0,400;1,200;1,400&display=swap"
     rel="stylesheet">
+
+  <!-- lightGallery -->
+  <link type="text/css" rel="stylesheet" href="./dist/css/lightgallery-bundle.min.css" />
   <!-- TODO: Favicon -->
 
   <!-- OG -->
@@ -57,7 +60,7 @@
         </h1>
       </div>
 
-      <div class="flex justify-center mb-16 md:mb-24 lg:mb-16 mt-12 sm:mt-0">
+      <!-- <div class="flex justify-center mb-16 md:mb-24 lg:mb-16 mt-12 sm:mt-0">
         <div class="flex flex-row-reverse sm:flex-row max-w-xl items-center pr-8 sm:pr-0 sm:space-x-12">
           <img src="./images/atomic-flower-2.png" alt="čerstvě zasazená květina s růžovými listy" class="w-20 sm:w-24">
           <p class="prose prose-xl">
@@ -65,7 +68,215 @@
             Zapoj se jako...
           </p>
         </div>
+      </div> -->
+      <!-- <div class="mb-16 md:mb-24 lg:mb-32 mt-12 sm:mt-0">
+        <div>
+          <h2
+            class="pl-20 sm:pl-0 z-20 max-w-xl font-barrio text-4xl font-extrabold tracking-tight text-primary-500 transition-colors duration-150 ease-in group-hover:text-primary-400 md:text-5xl lg:text-6xl">
+            Co tu roste?
+          </h2>
+          <div class="mt-8 sm:mt-12 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
+            <div>
+              <p class="text-sm text-primary-600">
+                <time datetime="2020-03-16">23 června, 2020 - 18:00</time>
+              </p>
+              <div class="mt-2 block">
+                <p class="text-xl font-semibold text-primary-900">Zahradní veselí</p>
+                <p class="mt-3 text-base text-primary-800">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel
+                  totam
+                  vitae
+                  illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt
+                  vel. Iusto
+                  corrupti dicta.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="mb-16 md:mb-24 mt-12 sm:mt-0">
+        <div>
+          <h2
+            class="pl-20 sm:pl-0 z-20 max-w-xl font-barrio text-4xl font-extrabold tracking-tight text-primary-500 transition-colors duration-150 ease-in group-hover:text-primary-400 md:text-5xl lg:text-6xl">
+            Co jsme zasadili
+          </h2>
+          <div class="mt-8 sm:mt-12 grid gap-16 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
+            <div class="mt-2 block lg:col-span-2">
+              <p class="text-xl font-semibold text-primary-900">
+                Zahrada je přístupná veřejnosti za dodržení následujících pravidel:
+              </p>
+              <ul class="space-y-4 mt-8">
+                <li class="flex space-x-3 items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 text-primary-500">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                  <div>Je zakázáno přemísťovat či jinak manipulovat se záhony a jejich obsahem</div>
+                </li>
+                <li class="flex space-x-3 items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="h-5 text-primary-500">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                  <div>Vodní nádrž slouží výhradě k zavlažování rostlin</div>
+                </li>
+                <li class="flex space-x-3 items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="h-5 text-primary-500">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                  <div>Obdivovat krásu zahrady je možno výhradně očima</div>
+                </li>
+                <li class="flex space-x-3 items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="h-5 text-primary-500">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                  <div>Je žádoucí zaregistrovat se pro odběr novinek na našem webu</div>
+                </li>
+                <li class="flex space-x-3 items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="h-5 text-primary-500">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                  <div>Užít si parný den ve stínu na lavičce a rozjímat nad smyslem života, doporučeno</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- image gallery -->
+      <section class="mb-16 md:mb-24 lg:mb-32">
+        <ul id="lightgallery" role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 xl:gap-x-8">
+          <li class="relative">
+            <a
+              href="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_1200/v1654717732/zahrada/DSCN9328_zzinzg.jpg">
+              <picture>
+                <source
+                  srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717732/zahrada/DSCN9328_zzinzg.webp"
+                  type="image/webp" width="600" height="450">
+                <img
+                  src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717732/zahrada/DSCN9328_zzinzg.jpg"
+                  alt="" type="image/png" width="600" height="450" class="max-w-full rounded">
+              </picture>
+            </a>
+          </li>
+          <li class="relative">
+            <a
+              href="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_1200/v1654717734/zahrada/DSCN9271_yntvvo.jpg">
+              <picture>
+                <source
+                  srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717734/zahrada/DSCN9271_yntvvo.webp"
+                  type="image/webp" width="600" height="450">
+                <img
+                  src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717734/zahrada/DSCN9271_yntvvo.jpg"
+                  alt="" type="image/png" width="600" height="450" class="max-w-full rounded">
+              </picture>
+            </a>
+          </li>
+          <li class="relative">
+            <a
+              href="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_1200/v1654717734/zahrada/DSCN9308_uhhfnr.jpg">
+              <picture>
+                <source
+                  srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717734/zahrada/DSCN9308_uhhfnr.webp"
+                  type="image/webp" width="600" height="450">
+                <img
+                  src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717734/zahrada/DSCN9308_uhhfnr.jpg"
+                  alt="" type="image/png" width="600" height="450" class="max-w-full rounded">
+              </picture>
+            </a>
+          </li>
+          <li class="relative">
+            <a
+              href="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,h_900,q_auto:eco,w_1200/v1654717734/zahrada/DSCN9285_ijekmi.jpg">
+              <picture>
+                <source
+                  srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717734/zahrada/DSCN9285_ijekmi.webp"
+                  type="image/webp" width="600" height="450">
+                <img
+                  src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717734/zahrada/DSCN9285_ijekmi.jpg"
+                  alt="" type="image/png" width="600" height="450" class="max-w-full rounded">
+              </picture>
+            </a>
+          </li>
+          <li class="relative">
+            <a
+              href="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_1200/v1654717733/zahrada/DSCN9225_zwiuj4.jpg">
+              <picture>
+                <source
+                  srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717733/zahrada/DSCN9225_zwiuj4.webp"
+                  type="image/webp" width="600" height="450">
+                <img
+                  src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717733/zahrada/DSCN9225_zwiuj4.jpg"
+                  alt="" type="image/png" width="600" height="450" class="max-w-full rounded">
+              </picture>
+            </a>
+          </li>
+          <li class="relative">
+            <a
+              href="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,h_900,q_auto:eco,w_1200/v1654717732/zahrada/DSCN9286_dj2eke.jpg">
+              <picture>
+                <source
+                  srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,h_450,q_auto:eco,w_600/v1654717732/zahrada/DSCN9286_dj2eke.webp"
+                  type="image/webp" width="600" height="450">
+                <img
+                  src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_600/v1654717732/zahrada/DSCN9286_dj2eke.jpg"
+                  alt="" type="image/png" width="600" height="450" class="max-w-full rounded">
+              </picture>
+            </a>
+          </li>
+          <!-- <li class="relative">
+          <picture>
+            <source srcset="" type="" width="600" height="450">
+            <img src="" alt="" type="" width="600" height="450" class="max-w-full rounded">
+          </picture>
+        </li> -->
+        </ul>
+      </section>
       <!-- <p class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
         <span class="block xl:inline">Tady vidím</span>
         <span class="block text-green-800 xl:inline">velký zahradnický!</span>
@@ -234,6 +445,10 @@
               alt="logo Nadace Via" class="h-16" type="image/png" height="127" />
           </picture>
         </div>
+        <p class="text-sm text-gray-500 text-center max-w-lg mx-auto">Zřizovatelem zahrady je Souhra, z.s a Komise
+          místní
+          samosprávy
+          Pražské předměstí sever, partnerem Nadace Via a Kaufland.</p>
         <p class="text-sm text-gray-500 text-center">Ilustrace: <a class="underline hover:no-underline"
             href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons
             8</a> a <a class="underline hover:no-underline" href="https://icons8.com/illustrations">Ouch!</a>
