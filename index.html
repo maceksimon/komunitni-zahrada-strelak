@@ -33,10 +33,24 @@
     <!-- Heading part -->
     <div class="max-w-5xl mx-auto flex flex-col min-h-screen">
       <div class="relative flex justify-center pt-10 sm:pt-20 h-96 pl-20 sm:pl-0">
-        <img src="./images/atomic-flower-1.png" alt="žlutá květina v květináči"
-          class="isolate absolute w-28 sm:w-40 left-0 top-6 sm:top-10">
-        <img src="./images/fabulous-garden-bed.png" alt="záhon s několika květinami"
-          class="isolate absolute w-72 sm:w-96 right-0 bottom-0">
+        <picture>
+          <source
+            srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,h_552,q_auto:eco,w_320/v1654713047/zahrada/atomic-flower-1_mz65ff.webp"
+            type="image/webp" width="320" height="552" />
+          <img
+            src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_320/v1654713047/zahrada/atomic-flower-1_mz65ff.png"
+            type="image/png" width="320" height="552" alt="žlutá květina v květináči"
+            class="isolate absolute w-28 sm:w-40 left-0 top-6 sm:top-10">
+        </picture>
+        <picture>
+          <source
+            srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_800/v1654713051/zahrada/fabulous-garden-bed_bxeglz.webp"
+            type="image/webp" width="800" height="431" />
+          <img
+            src="https://res.cloudinary.com/pavilionpreview/image/upload/c_fill,h_1400,q_auto:eco,w_1400/zahrada/fabulous-garden-bed_bxeglz.png"
+            type="image/png" width="800" height="431" alt="záhon s několika květinami"
+            class="isolate absolute w-72 sm:w-96 right-0 bottom-0" loading="lazy">
+        </picture>
         <h1
           class="isolate text-4xl tracking-tight font-barrio font-extrabold text-primary-500 sm:text-5xl md:text-6xl max-w-xl mb-40 text-right sm:mb-0 sm:text-left">
           Komunitní zahrada Střelák
@@ -74,12 +88,33 @@
                   class="pl-20 sm:pl-0 prose prose-xl z-10 mt-2 lg:mt-4 w-full lg:text-center group-hover:text-primary-600 transition-colors duration-150 ease-in">
                   Pěstuje komunitní spirit
                 </p>
-                <img class="z-10 mt-4 sm:mt-6 lg:mt-12 w-64 sm:w-80" src="./images/atomic-helper.png" alt="" />
+                <picture>
+                  <source
+                    srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_640/v1654713050/zahrada/atomic-helper_wttsuv.webp"
+                    type="image/webp" width="640" height="640">
+                  <img class="relative z-10 mt-4 sm:mt-6 lg:mt-12 w-64 sm:w-80"
+                    src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_640/v1654713050/zahrada/atomic-helper_wttsuv.png"
+                    type="image/png" width="640" height="640" alt="zahradník dělá jarní úklid" />
+                </picture>
                 <!-- Absolutely positioned images -->
-                <img id="helperFlower" src="./images/atomic-flower-3.png" alt=""
-                  class="absolute -top-8 sm:-top-32 lg:-top-40 left-0 sm:-left-4 z-10 w-16 sm:w-20 lg:w-24" />
-                <img src="./images/atomic-green-grass.png" alt=""
-                  class="absolute bottom-0 right-0 z-10 w-28 sm:32 lg:w-44" />
+                <picture>
+                  <source
+                    srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_180/v1654713046/zahrada/atomic-flower-3_ixpocy.webp"
+                    type="image/webp" width="180" height="348">
+                  <img id="helperFlower"
+                    src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_180/v1654713046/zahrada/atomic-flower-3_ixpocy.png"
+                    type="image/png" width="180" height="348" alt="květina pěstovaná v květináči"
+                    class="absolute -top-8 sm:-top-32 lg:-top-40 left-0 sm:-left-4 z-10 w-16 sm:w-20 lg:w-24" />
+                </picture>
+                <picture>
+                  <source
+                    srcset="https://res.cloudinary.com/pavilionpreview/image/upload/q_auto:eco/v1654713048/zahrada/atomic-green-grass_opjech.webp"
+                    type="image/webp" width="340" height="224">
+                  <img
+                    src="https://res.cloudinary.com/pavilionpreview/image/upload/q_auto:eco/v1654713048/zahrada/atomic-green-grass_opjech.png"
+                    type="image/png" width="340" height="224" alt="zahradní porost"
+                    class="absolute bottom-0 right-0 z-10 w-28 sm:32 lg:w-44" />
+                </picture>
               </div>
             </template>
             <template v-slot:box2>
@@ -96,17 +131,55 @@
                   Adoptuje truhlík
                 </p>
                 <!-- Absolutely positioned images -->
-                <img src="./images/atomic-green-leaves.png" id="gardenerFlower1"
-                  class="absolute right-0 sm:right-auto sm:left-0 bottom-12 z-10 w-20 sm:w-28" />
-                <img class="z-10 mt-12 w-60 sm:w-72 lg:w-80" src="./images/atomic-gardener.png" alt="" />
-                <img src="./images/atomic-leaves.png" id="gardenerFlower2"
-                  class="absolute left:auto right-6 sm:right-auto sm:left-20 bottom-0 z-10 w-14 sm:w-20" />
-                <img src="./images/atomic-black-leaves.png" alt=""
-                  class="absolute left-0 sm:right-0 -top-4 sm:-top-24 z-10 w-16 sm:w-28" />
+                <picture>
+                  <source
+                    srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_224/v1654713049/zahrada/atomic-green-leaves_rfl04s.webp"
+                    type="image/webp" width="224" height="358">
+                  <img
+                    src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_224/v1654713049/zahrada/atomic-green-leaves_rfl04s.png"
+                    alt="tráva v zahradě" type="image/png" width="224" height="358" id="gardenerFlower1"
+                    class="absolute right-0 sm:right-auto sm:left-0 bottom-12 z-10 w-20 sm:w-28" />
+                </picture>
+                <picture>
+                  <source
+                    srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_640/v1654713047/zahrada/atomic-gardener_cpmr8f.webp"
+                    type="image/webp" width="640" height="640">
+                  <img class="z-10 mt-12 w-60 sm:w-72 lg:w-80"
+                    src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_640/v1654713047/zahrada/atomic-gardener_cpmr8f.png"
+                    alt="zahradník zalévá truhlík na zahradě Střelák" type="image/png" width="640" height="640" />
+                </picture>
+                <picture>
+                  <source
+                    srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_160/v1654713049/zahrada/atomic-leaves_hafvql.webp"
+                    type="image/webp" width="160" height="269">
+                  <img
+                    src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_160/v1654713049/zahrada/atomic-leaves_hafvql.png"
+                    id="gardenerFlower2" alt="rostlina šťovíku"
+                    class="absolute left:auto right-6 sm:right-auto sm:left-20 bottom-0 z-10 w-14 sm:w-20"
+                    type="image/png" width="160" height="269" />
+                </picture>
+                <picture>
+                  <source
+                    srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_224/v1654713047/zahrada/atomic-black-leaves_a3byoj.webp"
+                    type="image/webp" width="224" height="364">
+                  <img
+                    src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_224/v1654713047/zahrada/atomic-black-leaves_a3byoj.png"
+                    alt="rostlina s tmavými listy"
+                    class="absolute left-0 sm:right-0 -top-4 sm:-top-24 z-10 w-16 sm:w-28" type="image/png" width="224"
+                    height="364" />
+                </picture>
               </div>
             </template>
             <template v-slot:newsletter>
-              <img src="./images/atomic-berries.png" alt="" class="absolute w-24 -left-36 top-0">
+              <picture>
+                <source
+                  srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_190/v1654713046/zahrada/atomic-berries_uilqlo.webp"
+                  type="image/webp" width="190" height="204">
+                <img
+                  src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_190/v1654713046/zahrada/atomic-berries_uilqlo.png"
+                  alt="trs jahod vyrostlých na zahradě" class="absolute w-24 -left-36 top-0" type="image/png"
+                  width="190" height="204" />
+              </picture>
             </template>
           </Modal>
         </div>
@@ -141,15 +214,28 @@
         <input type="text" name="newsletter" />
       </form>
 
-      <footer class="grid grid-cols-1 sm:grid-cols-4 mb-4 space-y-6 sm:space-y-0 sm:py-8 items-end">
-        <p class="hidden sm:block text-sm text-gray-500 col-span-1">Podpořila Nadace Via</p>
+      <footer class="grid grid-cols-1 mb-4 sm:mb-6 space-y-6 items-end">
         <div
-          class="sm:col-span-2 flex items-center justify-center space-x-8 opacity-70 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-          <img src="./images/logo_kaufland.png" alt="logo Kaufland aktivismus" class="h-16">
-          <img src="./images/via_logo.png" alt="logo Nadace Via" class="h-16">
+          class="flex items-center justify-center space-x-8 opacity-70 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+          <picture>
+            <source
+              srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_266/v1654713048/zahrada/logo_kaufland_mz8jll.webp"
+              type="image/webp" height="128">
+            <img
+              src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_266/v1654713048/zahrada/logo_kaufland_mz8jll.png"
+              alt="logo Kaufland aktivismus" class="h-16" type="image/png" height="128" />
+          </picture>
+          <picture>
+            <source
+              srcset="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_180/v1654713049/zahrada/via_logo_jsnf4a.webp"
+              type="image/webp" height="127">
+            <img
+              src="https://res.cloudinary.com/pavilionpreview/image/upload/c_scale,q_auto:eco,w_180/v1654713049/zahrada/via_logo_jsnf4a.png"
+              alt="logo Nadace Via" class="h-16" type="image/png" height="127" />
+          </picture>
         </div>
-        <p class="text-sm text-gray-500 text-center col-span-1 sm:text-right">Ilustrace: <a
-            class="underline hover:no-underline" href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons
+        <p class="text-sm text-gray-500 text-center">Ilustrace: <a class="underline hover:no-underline"
+            href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons
             8</a> a <a class="underline hover:no-underline" href="https://icons8.com/illustrations">Ouch!</a>
         </p>
       </footer>
