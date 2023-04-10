@@ -289,6 +289,7 @@ export default {
     ErrorDisplay,
   },
   setup() {
+    const AVAILABLE_BEDS = 29
     const open = ref(false);
     const formType = ref("volunteer");
     const freeBeds = ref(null);
@@ -313,7 +314,7 @@ export default {
           }
         }, 0);
 
-        freeBeds.value = 20 - takenBeds;
+        freeBeds.value = AVAILABLE_BEDS - takenBeds;
       }
     });
 
