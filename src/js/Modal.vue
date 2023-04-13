@@ -8,9 +8,7 @@
     <slot name="box1"></slot>
   </a>
   <a
-    :class="[
-      freeBeds !== null && freeBeds > 0 ? 'group cursor-pointer' : 'opacity-70',
-    ]"
+    :class="[freeBeds !== null && freeBeds > 0 ? 'group cursor-pointer' : 'opacity-70']"
     class="relative col-span-1 block h-full"
     @click.prevent="openModal('gardener')"
     @mouseenter="animateGardener"
@@ -34,15 +32,12 @@
     </div>
   </a>
   <!-- Newsletter section -->
-  <div class="col-span-1 pt-12 sm:col-span-2 sm:pt-16 lg:pt-20">
-    <div
-      class="relative mx-auto mb-2 sm:mr-10 sm:max-w-lg lg:mr-auto lg:max-w-xl"
-    >
+  <div class="col-span-1 pt-12 sm:col-span-2 sm:pt-20 lg:pt-24">
+    <div class="relative mx-auto mb-2 sm:mr-10 sm:max-w-lg lg:mr-auto lg:max-w-xl">
       <slot name="newsletter"></slot>
       <h3 class="text-xl font-semibold text-primary-900">Odebírat novinky</h3>
       <p class="prose prose-lg text-primary-900">
-        Zatím vyčkávám ve stínu ale chci mít přehled o tom, co se děje v
-        zahradě.
+        Zatím vyčkávám ve stínu ale chci mít přehled o tom, co se děje v zahradě.
       </p>
       <form
         class="relative mt-8 w-full sm:flex"
@@ -75,14 +70,8 @@
   </div>
   <!-- Modal window -->
   <TransitionRoot as="template" :show="open" @after-leave="resetCurrentForm">
-    <Dialog
-      as="div"
-      class="fixed inset-0 z-30 overflow-y-auto"
-      @close="open = false"
-    >
-      <div
-        class="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0"
-      >
+    <Dialog as="div" class="fixed inset-0 z-30 overflow-y-auto" @close="open = false">
+      <div class="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
         <TransitionChild
           as="template"
           enter="ease-out duration-300"
@@ -92,17 +81,11 @@
           leave-from="opacity-100"
           leave-to="opacity-0"
         >
-          <DialogOverlay
-            class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-          />
+          <DialogOverlay class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         </TransitionChild>
 
         <!-- This element is to trick the browser into centering the modal contents. -->
-        <span
-          class="hidden sm:inline-block sm:h-screen sm:align-middle"
-          aria-hidden="true"
-          >&#8203;</span
-        >
+        <span class="hidden sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true">&#8203;</span>
         <TransitionChild
           as="template"
           enter="ease-out duration-300"
@@ -118,10 +101,7 @@
           >
             <!-- Render the modal content -->
             <div class="relative bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-              <button
-                class="absolute right-4 top-5 h-4 w-4 sm:hidden"
-                @click="open = false"
-              >
+              <button class="absolute right-4 top-5 h-4 w-4 sm:hidden" @click="open = false">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-4 w-4"
@@ -130,11 +110,7 @@
                   stroke="currentColor"
                   stroke-width="2"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
               <div class="sm:flex sm:items-start">
@@ -152,11 +128,7 @@
                       stroke="currentColor"
                       stroke-width="2"
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <div
@@ -182,12 +154,8 @@
                     as="h3"
                     class="pr-4 text-left text-xl font-semibold leading-6 text-primary-900 sm:my-4 sm:pr-0 sm:text-center"
                   >
-                    <span v-if="formType === 'volunteer'"
-                      >Přihlaš se jako dobrovolník</span
-                    >
-                    <span v-if="formType === 'gardener'"
-                      >Přihlaš se jako zahradník</span
-                    >
+                    <span v-if="formType === 'volunteer'">Přihlaš se jako dobrovolník</span>
+                    <span v-if="formType === 'gardener'">Přihlaš se jako zahradník</span>
                     <!-- <span v-if="formType === 'gardener'">Přihlaš se jako dobrovolník</span> -->
                     <span v-if="formType === 'submitted'">Děkujeme!</span>
                     <span v-if="formType === 'unsuccessful'">Chyba</span>
@@ -206,27 +174,18 @@
                   ></GardenerForm>
                   <!-- Thank you -->
                   <div v-if="formType === 'submitted'" class="prose prose-lg">
-                    <p>
-                      Obdrželi jsme vaši registraci a brzy vám ji potvrdíme
-                      emailem.
-                    </p>
+                    <p>Obdrželi jsme vaši registraci a brzy vám ji potvrdíme emailem.</p>
                   </div>
-                  <div
-                    v-if="formType === 'unsuccessful'"
-                    class="prose prose-lg"
-                  >
+                  <div v-if="formType === 'unsuccessful'" class="prose prose-lg">
                     <p>
-                      Odeslání formuláře se nepovedlo. Prosím, zkuste to
-                      později, nebo nám napište na adresu
+                      Odeslání formuláře se nepovedlo. Prosím, zkuste to později, nebo nám napište na adresu
                       info@zahradastrelak.cz.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              class="bg-primary-100 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6"
-            >
+            <div class="bg-primary-100 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <button
                 v-if="formType === 'volunteer' || formType === 'gardener'"
                 type="button"
@@ -252,30 +211,21 @@
 </template>
 
 <script>
-import { ref, reactive, onMounted } from "vue";
-import axios from "axios";
-import { createClient } from "@supabase/supabase-js";
+import { ref, reactive, onMounted } from "vue"
+import axios from "axios"
+import { createClient } from "@supabase/supabase-js"
 
 // initialize supabase
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_PUBLIC_KEY
-);
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_PUBLIC_KEY)
 
-import {
-  Dialog,
-  DialogOverlay,
-  DialogTitle,
-  TransitionChild,
-  TransitionRoot,
-} from "@headlessui/vue";
-import VolunteerForm from "./VolunteerForm";
-import GardenerForm from "./GardenerForm";
-import ErrorDisplay from "./ErrorDisplay";
-import useVuelidate from "@vuelidate/core";
-import { rules } from "./validationRules";
-import { formGardenerDefault, formVolunteerDefault } from "./defaultFormData";
-import initAnimations from "./gsapAnimations";
+import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue"
+import VolunteerForm from "./VolunteerForm"
+import GardenerForm from "./GardenerForm"
+import ErrorDisplay from "./ErrorDisplay"
+import useVuelidate from "@vuelidate/core"
+import { rules } from "./validationRules"
+import { formGardenerDefault, formVolunteerDefault } from "./defaultFormData"
+import initAnimations from "./gsapAnimations"
 
 export default {
   components: {
@@ -286,128 +236,122 @@ export default {
     TransitionRoot,
     VolunteerForm,
     GardenerForm,
-    ErrorDisplay,
+    ErrorDisplay
   },
   setup() {
     const AVAILABLE_BEDS = 29
-    const open = ref(false);
-    const formType = ref("volunteer");
-    const freeBeds = ref(null);
+    const open = ref(false)
+    const formType = ref("volunteer")
+    const freeBeds = ref(null)
 
     onMounted(async () => {
       // get data about flower beds
-      let { data: members, error } = await supabase
-        .from("Members")
-        .select("flower-beds");
+      let { data: members, error } = await supabase.from("Members").select("flower-beds")
       if (members && members.length) {
         const takenBeds = members.reduce((acc, member) => {
           if (member["flower-beds"]) {
-            let bedNumber = 0;
+            let bedNumber = 0
             try {
-              bedNumber = parseFloat(member["flower-beds"]);
+              bedNumber = parseFloat(member["flower-beds"])
             } catch {
-              bedNumber = 0;
+              bedNumber = 0
             }
-            return acc + bedNumber;
+            return acc + bedNumber
           } else {
-            return acc;
+            return acc
           }
-        }, 0);
+        }, 0)
 
-        freeBeds.value = AVAILABLE_BEDS - takenBeds;
+        freeBeds.value = AVAILABLE_BEDS - takenBeds
       }
-    });
+    })
 
     const forms = reactive({
       volunteer: formVolunteerDefault,
       gardener: formGardenerDefault,
-      newsletter: "",
-    });
-    const v = useVuelidate(rules, forms);
+      newsletter: ""
+    })
+    const v = useVuelidate(rules, forms)
 
-    const { animateGardener, animateVolunteer } = initAnimations();
+    const { animateGardener, animateVolunteer } = initAnimations()
 
     function openModal(role) {
       if (role === "gardener" && freeBeds.value <= 0) {
-        return;
+        return
       }
-      formType.value = role;
-      open.value = true;
+      formType.value = role
+      open.value = true
     }
 
     function resetCurrentForm() {
-      v.value[formType.value].$reset();
+      v.value[formType.value].$reset()
     }
 
     function encodeData(data) {
       return Object.keys(data)
-        .map(
-          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-        )
-        .join("&");
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join("&")
     }
 
     async function handleSubmit() {
-      v.value[formType.value].$touch();
+      v.value[formType.value].$touch()
       if (v.value[formType.value].$error) {
-        return;
+        return
       }
       const axiosConfig = {
-        header: { "Content-Type": "application/x-www-form-urlencoded" },
-      };
+        header: { "Content-Type": "application/x-www-form-urlencoded" }
+      }
       const response = await axios.post(
         "/",
         encodeData({
           "form-name": formType.value,
-          ...forms[formType.value],
+          ...forms[formType.value]
         }),
         axiosConfig
-      );
+      )
       if (response.status === 200) {
         // Save data to Supabase
-        const { data, error } = await supabase
-          .from("Members")
-          .insert([forms[formType.value]]);
+        const { data, error } = await supabase.from("Members").insert([forms[formType.value]])
 
         // Reset form by looping over properties
-        Object.keys(forms[formType.value]).forEach((key) => {
-          forms[formType.value][key] = formVolunteerDefault[key];
-        });
+        Object.keys(forms[formType.value]).forEach(key => {
+          forms[formType.value][key] = formVolunteerDefault[key]
+        })
         // Display confirmation
-        formType.value = "submitted";
+        formType.value = "submitted"
       } else {
-        formType.value = "unsuccessful";
+        formType.value = "unsuccessful"
       }
     }
 
     async function handleNewsletter() {
-      v.value.newsletter.$touch();
+      v.value.newsletter.$touch()
       if (v.value.newsletter.$error) {
-        return;
+        return
       }
       const axiosConfig = {
-        header: { "Content-Type": "application/x-www-form-urlencoded" },
-      };
+        header: { "Content-Type": "application/x-www-form-urlencoded" }
+      }
       const response = await axios.post(
         "/",
         encodeData({
           "form-name": "newsletter",
-          "email-address": forms.newsletter,
+          "email-address": forms.newsletter
         }),
         axiosConfig
-      );
+      )
       if (response.status === 200) {
-        formType.value = "submitted";
-        open.value = true;
+        formType.value = "submitted"
+        open.value = true
         // Save data to Supabase
         const { data, error } = await supabase
           .from("Members")
-          .insert([{ "email-address": forms.newsletter, newsletter: true }]);
-        forms.newsletter = "";
-        v.value.newsletter.$reset();
+          .insert([{ "email-address": forms.newsletter, newsletter: true }])
+        forms.newsletter = ""
+        v.value.newsletter.$reset()
       } else {
-        formType.value = "unsuccessful";
-        open.value = true;
+        formType.value = "unsuccessful"
+        open.value = true
       }
     }
 
@@ -422,8 +366,8 @@ export default {
       handleNewsletter,
       animateGardener,
       animateVolunteer,
-      resetCurrentForm,
-    };
-  },
-};
+      resetCurrentForm
+    }
+  }
+}
 </script>
